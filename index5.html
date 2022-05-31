@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+    <!-- <script type="text/javascript"></script> -->
+    <style>
+        .mybox {
+            width: 100px;
+            height: 100px;
+            border: solid 1px black;
+            background-color: red;
+            color: white;
+            font-size: 20px;
+            margin: 5px;
+            padding: 10px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="mybox">one</div>
+    <div class="mybox">two</div>
+    <div class="mybox">three</div>
+    <div class="mybox">four</div>
+    <div class="mybox">five</div>
+    <div>
+        <button onclick="showPrev()">Previous</button>
+        <button onclick="showNext()">Next</button>
+    </div>
+    <script>
+        var visibleDiv = 0;
+
+        function showDiv(){
+            $(".mybox").hide();
+            $(".mybox:eq(" + visibleDiv + ")").show();
+        }
+        showDiv();
+
+        function showNext(){
+            if (visibleDiv == $(".mybox").length - 1) {
+                visibleDiv = 0;
+            } else {
+                visibleDiv++;
+            }
+            showDiv();
+        }
+        function showPrev(){
+            if (visibleDiv == 0) {
+                visibleDiv = $(".mybox").length - 1;
+            } else {
+                visibleDiv--;
+            }
+            showDiv();
+        }
+
+    </script>
+</body>
+
+</html>

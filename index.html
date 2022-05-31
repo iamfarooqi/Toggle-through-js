@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div class="showThese">
+        <div id=a style="display:block">1</div>
+        <div id=b style="display:none">2</div>
+        <div id=c style="display:none">3</div>
+        <div id=d style="display:none">4</div>
+    </div>
+
+    <div class="buttons">
+        <input type=button value=1 id=w>
+        <input type=button value=2 id=x>
+        <input type=button value=3 id=y>
+        <input type=button value=4 id=z>
+    </div>
+
+        <script>
+
+            $('div.buttons').on('click', 'input', function () {
+            var divs = $('div.showThese').children();
+
+
+            divs.eq($(this).index()).show().siblings().hide();
+
+        });
+    </script>
+</body>
+
+</html>
